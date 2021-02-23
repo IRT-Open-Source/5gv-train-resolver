@@ -8,7 +8,7 @@ Tells streaming clients from where they shall retrieve video stream segments.
 
 ## What is this?
 
-The Train Resolver service is part of the [platform](https://gitlab.irt.de/5g-victori/platform) for media caching on trains. The Train Resolver is needed by [streaming client](https://gitlab.irt.de/5g-victori/sample-streaming-client) based on the [ARD-Player with the MCDN Add-on](https://gitlab.irt.de/5g-victori/platform#adaptations-specific-to-ard-mediathek). When the user requests the playback of a video the player will first query a resolution service for which host it shall address to retrieve the respective stream segments. The DNS on trains equipped with our system will be configured to redirect these requests to the Train Resolver. The Train Resolver will tell the player to request all video segments from the local [cache](https://gitlab.irt.de/5g-victori/cache) on the train.
+The Train Resolver service is part of the [platform](../../../5gv-platform) for media caching on trains. The Train Resolver is needed by [streaming client](../../../5gv-sample-streaming-client) based on the [ARD-Player with the MCDN Add-on](../../../5gv-platform#adaptations-specific-to-ard-mediathek). When the user requests the playback of a video the player will first query a resolution service for which host it shall address to retrieve the respective stream segments. The DNS on trains equipped with our system will be configured to redirect these requests to the Train Resolver. The Train Resolver will tell the player to request all video segments from the local [cache](../../../5gv-cache) on the train.
 
 ## How does it work?
 
@@ -31,7 +31,7 @@ The service consits of an HTTP interface implemented in [`app.controller.ts`](sr
 
 ## Install, build, run
 
-**Note:** _Typically you would use the `up.sh` script from the [Platform](https://gitlab.irt.de/5g-victori/platform) project to install, build and run this service as part of a composite of docker services. Read on if you intend to run the service directly on your host system._
+**Note:** _Typically you would use the `up.sh` script from the [Platform](../../../5gv-platform) project to install, build and run this service as part of a composite of docker services. Read on if you intend to run the service directly on your host system._
 
 **Prerequestits**: Following software needs to be installed on your host machine in order to execute the subsequent steps.
 
@@ -57,7 +57,7 @@ $ npm run start:dev
 $ npm run start:prod
 ```
 
-With following command you can build a [docker image](https://www.docker.com) for this service. But again, typically you use the startup script `up.sh` of the [Platform](https://gitlab.irt.de/5g-victori/platform) project to do the job.
+With following command you can build a [docker image](https://www.docker.com) for this service. But again, typically you use the startup script `up.sh` of the [Platform](../../../5gv-platform) project to do the job.
 
 ```bash
 $ DOCKER_BUILDKIT=1 docker build --ssh gitlab="$HOME/.ssh/<<your_private_key_name>>" -t train-resolver .
